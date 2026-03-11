@@ -10,23 +10,23 @@ export function Hero({ onOpenSimulator }: { onOpenSimulator?: () => void }) {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-32 pb-24 lg:pt-20 lg:pb-0 overflow-hidden bg-zinc-950">
       {/* Background Gradients */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-blue/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-cyan/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="flex flex-col gap-6"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 w-fit">
-            <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span className="text-xs font-medium text-zinc-300 uppercase tracking-wider">O Futuro do Atendimento</span>
+            <span className="flex h-2 w-2 rounded-full bg-accent-cyan animate-pulse"></span>
+            <span className="text-xs font-black text-zinc-300 uppercase tracking-widest">Inteligência Comercial & Escala</span>
           </div>
-          
-          <motion.h1 
-            className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1]"
+
+          <motion.h1
+            className="text-5xl md:text-6xl lg:text-8xl font-black text-white tracking-tighter leading-[0.95]"
             variants={stagger}
             initial="hidden"
             animate="visible"
@@ -34,9 +34,9 @@ export function Hero({ onOpenSimulator }: { onOpenSimulator?: () => void }) {
             {words.map((word, i) => {
               const isHighlight = word === 'Piloto' || word === 'Automático';
               return (
-                <motion.span 
-                  key={i} 
-                  className={`inline-block mr-[0.22em] ${isHighlight ? 'text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600' : ''}`}
+                <motion.span
+                  key={i}
+                  className={`inline-block mr-[0.2em] ${isHighlight ? 'text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-cyan' : ''}`}
                   variants={{
                     hidden: { opacity: 0, y: 24, filter: 'blur(10px)' },
                     visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.55 } }
@@ -47,139 +47,145 @@ export function Hero({ onOpenSimulator }: { onOpenSimulator?: () => void }) {
               );
             })}
           </motion.h1>
-          
-          <p className="text-lg text-zinc-400 leading-relaxed max-w-xl">
-            Automatizamos a recepção e filtragem dos seus leads no WhatsApp com interações humanizadas. Escale suas vendas enquanto nossa IA qualifica seus clientes 24/7.
+
+          <p className="text-xl text-zinc-400 leading-relaxed max-w-xl font-medium">
+            Atendimento, qualificação e fechamento 100% automatizados. <span className="text-white">Escala real</span> sem depender de contratações complexas.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 mt-4">
+
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-full blur opacity-40 group-hover:opacity-75 transition duration-500"></div>
-              <a 
+              <div className="absolute -inset-1 bg-gradient-to-r from-accent-blue to-accent-cyan rounded-2xl blur opacity-40 group-hover:opacity-75 transition duration-500"></div>
+              <a
                 href={waURL(CONFIG.wa.msgHero)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative flex items-center justify-center gap-2 bg-emerald-500 text-zinc-950 px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105 overflow-hidden"
-                style={{ animation: 'ctaPulse 2.5s ease-in-out infinite' }}
+                className="relative flex items-center justify-center gap-3 bg-white text-zinc-950 px-10 py-5 rounded-2xl font-black uppercase tracking-widest transition-all transform hover:scale-[1.02] overflow-hidden"
               >
-                <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+                <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-zinc-200/50 to-transparent" />
                 {CONFIG.wa.ctaHero}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
-            <button 
+            <button
               onClick={onOpenSimulator}
-              className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 px-8 py-4 rounded-full font-semibold transition-all"
+              className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 text-white border border-white/10 px-10 py-5 rounded-2xl font-bold transition-all backdrop-blur-md"
             >
-              Ver Simulação Ao Vivo
+              Simulação de Atendimento
             </button>
           </div>
 
-          <div className="flex items-center gap-6 mt-8 pt-8 border-t border-white/10">
+          <div className="flex items-center gap-10 mt-10 pt-10 border-t border-white/5">
             <div className="flex flex-col">
-              <span className="text-3xl font-bold text-white">15+</span>
-              <span className="text-sm text-zinc-500">Anos de Experiência</span>
+              <span className="text-4xl font-black text-white italic">15+</span>
+              <span className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.2em]">Anos de <br /> Expertise</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-3xl font-bold text-white">100%</span>
-              <span className="text-sm text-zinc-500">Foco em Conversão</span>
+              <span className="text-4xl font-black text-white italic">100%</span>
+              <span className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.2em]">Foco em <br /> Conversão</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-4xl font-black text-white italic">24/7</span>
+              <span className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.2em]">Operação <br /> Full-Time</span>
             </div>
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative"
         >
-          <div className="relative rounded-2xl bg-zinc-900 border border-white/10 p-2 shadow-2xl">
-            <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-transparent rounded-2xl" />
-            
+          <div className="relative rounded-[40px] bg-zinc-900/50 border border-white/5 p-3 shadow-2xl backdrop-blur-xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-tr from-accent-blue/10 to-transparent rounded-[40px]" />
+
             {/* Mockup UI do WhatsApp Bot */}
-            <div className="bg-zinc-950 rounded-xl overflow-hidden border border-white/5 relative z-10 flex flex-col h-[400px] md:h-[460px]">
+            <div className="bg-zinc-950 rounded-[32px] overflow-hidden border border-white/5 relative z-10 flex flex-col h-[420px] md:h-[500px]">
               {/* Header */}
-              <div className="bg-zinc-900 px-4 py-3 border-b border-white/5 flex items-center gap-3 shrink-0">
-                <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                  <Bot className="w-6 h-6 text-emerald-400" />
+              <div className="bg-zinc-900/80 px-6 py-4 border-b border-white/5 flex items-center justify-between shrink-0 backdrop-blur-md">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-accent-blue/20 flex items-center justify-center">
+                    <Bot className="w-7 h-7 text-accent-cyan" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold text-base tracking-tight">Intalky Assistant</h3>
+                    <p className="text-accent-cyan text-xs font-bold flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse"></span> Atendendo Agora
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-white font-medium text-sm">Assistente IA</h3>
-                  <p className="text-emerald-400 text-xs flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Online
-                  </p>
-                </div>
+                <Zap className="w-5 h-5 text-zinc-700" />
               </div>
-              
+
               {/* Messages Area */}
-              <div className="p-4 flex flex-col gap-4 flex-1 overflow-y-auto relative bg-zinc-950/50">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
-                
-                <motion.div 
+              <div className="p-6 flex flex-col gap-5 flex-1 overflow-y-auto relative bg-zinc-950/50">
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay pointer-events-none"></div>
+
+                <motion.div
                   initial={{ opacity: 0, x: -20, scale: 0.9 }}
                   animate={{ opacity: 1, x: 0, scale: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="bg-zinc-800 text-zinc-200 p-3 rounded-2xl rounded-tl-none max-w-[85%] text-sm self-start shadow-sm relative z-10"
+                  className="bg-zinc-800 text-zinc-200 p-4 rounded-3xl rounded-tl-none max-w-[85%] text-sm self-start shadow-xl relative z-10 border border-white/5 leading-relaxed"
                 >
-                  Olá! Vi que você tem interesse em escalar suas vendas. Como posso te ajudar hoje?
+                  Olá! Analisamos seu último anúncio. O lead acaba de chegar. Iniciando qualificação... ⚡
                 </motion.div>
-                
-                <motion.div 
+
+                <motion.div
                   initial={{ opacity: 0, x: 20, scale: 0.9 }}
                   animate={{ opacity: 1, x: 0, scale: 1 }}
                   transition={{ delay: 2 }}
-                  className="bg-emerald-600 text-white p-3 rounded-2xl rounded-tr-none max-w-[85%] text-sm self-end shadow-sm relative z-10"
+                  className="bg-gradient-to-br from-accent-blue to-accent-cyan text-zinc-950 p-4 rounded-3xl rounded-tr-none max-w-[85%] text-sm self-end shadow-xl relative z-10 font-bold leading-relaxed"
                 >
-                  Gostaria de saber mais sobre a automação de atendimento.
+                  Perfeito. Solicite o orçamento médio e o tempo de decisão.
                 </motion.div>
-                
-                <motion.div 
+
+                <motion.div
                   initial={{ opacity: 0, x: -20, scale: 0.9 }}
                   animate={{ opacity: 1, x: 0, scale: 1 }}
                   transition={{ delay: 3.5 }}
-                  className="bg-zinc-800 text-zinc-200 p-3 rounded-2xl rounded-tl-none max-w-[85%] text-sm self-start shadow-sm relative z-10"
+                  className="bg-zinc-800 text-zinc-200 p-4 rounded-3xl rounded-tl-none max-w-[85%] text-sm self-start shadow-xl relative z-10 border border-white/5 leading-relaxed"
                 >
-                  Perfeito! Nosso robô atende seus leads em segundos, faz a qualificação inicial e agenda reuniões. Quer ver uma demonstração?
+                  Lead qualificado! Possui verba de R$ 5k+ e urgência imediata. Reunião agendada na sua agenda para amanhã às 14h. ✅
                 </motion.div>
               </div>
 
               {/* Input Area */}
-              <div className="bg-zinc-900 p-3 border-t border-white/5 shrink-0 flex items-center gap-3 relative z-20">
-                <div className="flex-1 bg-zinc-950 border border-white/10 rounded-full px-4 py-2.5 text-sm text-zinc-500">
-                  Digite sua mensagem...
+              <div className="bg-zinc-900/50 p-4 border-t border-white/5 shrink-0 flex items-center gap-4 relative z-20 backdrop-blur-md">
+                <div className="flex-1 bg-zinc-950 border border-white/10 rounded-2xl px-5 py-3.5 text-sm text-zinc-600 font-medium italic">
+                  Bot processando em tempo real...
                 </div>
-                <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center shrink-0 cursor-pointer hover:bg-emerald-400 transition-colors">
-                  <ArrowRight className="w-5 h-5 text-zinc-950" />
+                <div className="w-12 h-12 rounded-2xl bg-accent-blue flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/20">
+                  <ArrowRight className="w-6 h-6 text-white" />
                 </div>
               </div>
             </div>
-            
+
             {/* Floating Badges */}
-            <motion.div 
-              animate={{ y: [0, -10, 0] }}
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="hidden md:flex absolute -right-8 top-20 bg-zinc-900 border border-white/10 p-4 rounded-2xl shadow-xl items-center gap-3 z-30 hover:opacity-0 transition-opacity duration-300 cursor-default"
+              className="hidden md:flex absolute -right-12 top-24 bg-zinc-900/80 backdrop-blur-xl border border-white/10 p-5 rounded-3xl shadow-2xl items-center gap-4 z-30 group cursor-default"
             >
-              <div className="bg-violet-500/20 p-2 rounded-lg">
-                <Zap className="w-5 h-5 text-violet-400" />
+              <div className="bg-blue-500/20 p-3 rounded-2xl group-hover:bg-blue-500 transition-colors">
+                <Zap className="w-6 h-6 text-blue-400 group-hover:text-white" />
               </div>
               <div>
-                <p className="text-white text-sm font-bold">Resposta em 3s</p>
-                <p className="text-zinc-400 text-xs">Atendimento imediato</p>
+                <p className="text-white text-base font-black italic tracking-tight">Response: 3s</p>
+                <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest">Instant Scale</p>
               </div>
             </motion.div>
 
-            <motion.div 
-              animate={{ y: [0, 10, 0] }}
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-              className="hidden md:flex absolute -left-8 bottom-32 bg-zinc-900 border border-white/10 p-4 rounded-2xl shadow-xl items-center gap-3 z-30 hover:opacity-0 transition-opacity duration-300 cursor-default"
+              className="hidden md:flex absolute -left-12 bottom-28 bg-zinc-900/80 backdrop-blur-xl border border-white/10 p-5 rounded-3xl shadow-2xl items-center gap-4 z-30 group cursor-default"
             >
-              <div className="bg-emerald-500/20 p-2 rounded-lg">
-                <MessageSquareCode className="w-5 h-5 text-emerald-400" />
+              <div className="bg-cyan-500/20 p-3 rounded-2xl group-hover:bg-cyan-500 transition-colors">
+                <MessageSquareCode className="w-6 h-6 text-cyan-400 group-hover:text-white" />
               </div>
               <div>
-                <p className="text-white text-sm font-bold">Qualificação IA</p>
-                <p className="text-zinc-400 text-xs">Filtro inteligente</p>
+                <p className="text-white text-base font-black italic tracking-tight">Smart Filtro</p>
+                <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest">Lead Qualifier</p>
               </div>
             </motion.div>
           </div>

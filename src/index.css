@@ -4,6 +4,20 @@
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+  
+  --color-accent-blue: #0096ff;
+  --color-accent-cyan: #00ffe6;
 }
 
 html {
@@ -19,17 +33,18 @@ h1, h2, h3 {
 }
 
 @keyframes waPulse {
-  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
-  70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(0, 150, 255, 0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(0, 150, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 150, 255, 0); }
 }
 
 @keyframes ctaPulse {
-  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-  70% { box-shadow: 0 0 0 25px rgba(16, 185, 129, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 230, 0.4); }
+  70% { box-shadow: 0 0 0 25px rgba(0, 255, 230, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 230, 0); }
 }
 
 @keyframes shimmer {
   100% { transform: translateX(100%); }
 }
+

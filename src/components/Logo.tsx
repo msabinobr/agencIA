@@ -2,11 +2,33 @@ import { CONFIG } from '../config';
 
 export function Logo({ className = "h-8" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
-      <svg viewBox="0 0 24 24" fill="currentColor" className="h-full w-auto text-emerald-500">
-        <path d="M12 2C6.477 2 2 6.03 2 11c0 2.84 1.537 5.37 3.91 7.03-.42 1.84-1.6 3.4-1.64 3.45-.1.12-.13.28-.08.43.05.15.18.26.33.29 2.13.38 4.2-.3 5.56-1.12 1.25.3 2.56.47 3.92.47 5.523 0 10-4.03 10-9s-4.477-9-10-9zm-4 5h8v2.5H8V7zm0 4h8v2.5H8v-2.5zm0 4h5v2.5H8v-2.5z"/>
-      </svg>
-      <span className="text-2xl font-bold text-white tracking-tight">{CONFIG.brand.name}</span>
+    <div className={`flex items-center gap-3 ${className}`}>
+      <div className="relative h-full aspect-square">
+        {/* Intalky Icon */}
+        <svg viewBox="0 0 100 100" className="h-full w-full">
+          <defs>
+            <linearGradient id="intalky-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="var(--color-accent-blue)" />
+              <stop offset="100%" stopColor="var(--color-accent-cyan)" />
+            </linearGradient>
+          </defs>
+          {/* Head Shape */}
+          <path
+            d="M50 5C25.1 5 5 25.1 5 50c0 9.8 3.1 18.9 8.5 26.3L5 95l18.7-8.5c7.4 5.4 16.5 8.5 26.3 8.5 24.9 0 45-20.1 45-45S74.9 5 50 5z"
+            fill="url(#intalky-gradient)"
+          />
+          {/* Horizontal Lines (Features) */}
+          <rect x="25" y="35" width="40" height="6" rx="3" fill="white" fillOpacity="0.9" />
+          <rect x="25" y="48" width="50" height="6" rx="3" fill="white" fillOpacity="0.9" />
+          <rect x="25" y="61" width="35" height="6" rx="3" fill="white" fillOpacity="0.9" />
+          {/* Face Profile */}
+          <path d="M78 50c0 15.5-12.5 28-28 28" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.3" />
+        </svg>
+      </div>
+      <div className="flex flex-col leading-tight">
+        <span className="text-2xl font-black text-white tracking-tighter uppercase italic">Intalky</span>
+        <span className="text-[10px] font-medium text-primary-400 tracking-widest uppercase">Assessoria & Automação</span>
+      </div>
     </div>
   );
 }
